@@ -1,0 +1,25 @@
+<div class="col-md-12">
+    <div class="card mt-5">
+        <div class="card-header"><h3>Išspręsk uždavinius</h3></div>
+        <div class="card-body">
+            <div class="mb-3">
+                {{ uzdaviniai[au].uzdavinys}} 
+                <div>
+                    <label class="form-label" *ngIf="laikas != 0"  >Įrašykite atsakymą: </label>
+                    <input type="number" #skaicius placeholder="Įrašykite skaičių">
+                </div>
+                <div class="float-end" style="color: darkred;">
+                    Liko {{laikas}} sec.| Atspeta {{ teisingi }} / {{ viso }}
+                </div>
+                <div class="alert alert-danger" *ngIf="laikas == 0">LAIKAS BAIGESI!</div>
+            </div>
+            <div *ngIf="!pabaiga">
+                
+                <button type="btn btn-success" (click)="spejimas(skaicius.value); skaicius.value=''">
+                    Speti
+                </button>
+            
+            </div>
+        </div>
+    </div>
+</div>
